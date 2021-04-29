@@ -13,13 +13,32 @@
 
 header{
 
-    background-color: black;
-    padding: 10px;
-    
+    background-color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
 }
 
 h1{
     color: red ;
     font-size: 40px;;
+}
+
+/* MAIN */
+.cards-container{
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+
+}
+
+.single-card{
+    width: calc((100% / 5) - 20px);
+    background-color: red;
+    padding: 20px;
+    margin-bottom: 20px;
+    
 }

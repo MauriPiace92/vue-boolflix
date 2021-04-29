@@ -19,11 +19,34 @@
             <!-- HEADER -->
             <header>
                 <h1>BoolFix</h1>
-
-                <button>Search</button>
-                <label for="search-bar"></label>
-                <input id="search-bar" type="text" placeholder="Ricerca titolo, artista..." >
+                
+                <div class="research">
+                    <button @click='confirmSearch'>Search</button>
+                    <label for="search-bar"></label>
+                    <input @keyup='confirmSearch' v-model='userInput' id="search-bar" type="text" placeholder="Ricerca titolo, artista..." >
+                </div>
             </header>
+            <!-- end HEADER -->
+
+            <!-- MAIN -->
+            <main class="cards-section">
+
+                <div class="cards-container">
+                    <div class="single-card" v-for='movie in movies'>
+
+                        <div class="title">Titolo: {{movie.title}}</div>
+                        <div class="original-title">Titolo Originale: {{movie.original_title}}</div>
+                        <div class="lenguage">Lingua: {{movie.original_language}}</div>
+                        <div class="vote">Voto: {{movie.vote_average}}</div>
+
+                    </div>
+                </div>
+
+            </main>
+            <!--END MAIN -->
+
+
+
 
 
 
