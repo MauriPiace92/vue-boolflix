@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="css/style.css">
     
     <title>Boolfix</title>
@@ -33,23 +34,36 @@
                 <!-- container and cards for movies  -->
                 <div class="cards-container">
                     <div class="single-card" v-for='movie in movies'>
+                        <div class="cover-img">
+                            <img class="poster-net" v-if="movie.poster_path == null" src="img/posternetflix.jpg" alt="">
+                            <img v-else :src="'https://image.tmdb.org/t/p/w342/'+ movie.poster_path" alt="">
+                        </div>
 
                         <div class="title">Titolo: {{movie.title}}</div>
                         <div class="original-title">Titolo Originale: {{movie.original_title}}</div>
                         <div class="lenguage">Lingua:<span class="flag"> <img :src=' " img/" + movie.original_language + ".svg" ' alt=""></span>{{movie.original_language}}</div>
-                        <div class="vote">Voto: {{movie.vote_average}}</div>
-
+                        <div  class="vote">
+                            <span v-if='movie.vote_average == 0 '> No vote available</span>
+                            Vote:  <i v-else v-for="vote in voteInStar(movie.vote_average)" class="fas fa-star"></i>
+                         </div>
                     </div>
                 </div>
                 <!--End container and cards for movies  -->
                 <!-- container and cards for tv shows  -->
                 <div class="cards-container">
                     <div class="single-card" v-for='show in tvShows'>
+                        <div class="cover-img">
+                            <img class="poster-net" v-if="show.poster_path == null" src="img/posternetflix.jpg" alt="">
+                            <img v-else :src="'https://image.tmdb.org/t/p/w342/'+ show.poster_path" alt="">
+                        </div>
 
                         <div class="title">Titolo: {{show.name}}</div>
                         <div class="original-title">Titolo Originale: {{show.original_title}}</div>
                         <div class="lenguage">Lingua:<span class="flag"> <img :src=' " img/" + show.original_language + ".svg" ' alt=""></span>{{show.original_language}}</div>
-                        <div class="vote">Voto: {{show.vote_average}}</div>
+                        <div  class="vote">
+                            <span v-if='show.vote_average == 0 '> No vote available</span>
+                           Vote:  <i v-else v-for="vote in voteInStar(show.vote_average)" class="fas fa-star"></i>
+                        </div>
 
                     </div>
                 </div>

@@ -42,7 +42,13 @@ var root = new Vue(
 
                         console.log(result.results);
                         this.tvShows = result.results;
-                    });
+                    });                
+            },
+
+            voteInStar(vote){
+
+                const voteStars = Math.ceil(vote / 2);
+                return voteStars;
             }
                 
 
