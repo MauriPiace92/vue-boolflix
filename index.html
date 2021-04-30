@@ -24,7 +24,7 @@
                 <div class="research">
                     <button @click='confirmSearch'>Search</button>
                     <label for="search-bar"></label>
-                    <input @keyup.enter='confirmSearch' v-model='userInput' id="search-bar" type="text" placeholder="Ricerca titolo, artista..." >
+                    <input @keyup='confirmSearch' v-model='userInput' id="search-bar" type="text" placeholder="Ricerca titolo, artista..." >
                 </div>
             </header>
             <!-- end HEADER -->
@@ -38,14 +38,16 @@
                             <img class="poster-net" v-if="movie.poster_path == null" src="img/posternetflix.jpg" alt="">
                             <img v-else :src="'https://image.tmdb.org/t/p/w342/'+ movie.poster_path" alt="">
                         </div>
-
-                        <div class="title">Titolo: {{movie.title}}</div>
-                        <div class="original-title">Titolo Originale: {{movie.original_title}}</div>
-                        <div class="lenguage">Lingua:<span class="flag"> <img :src=' " img/" + movie.original_language + ".svg" ' alt=""></span>{{movie.original_language}}</div>
-                        <div  class="vote">
-                            <span v-if='movie.vote_average == 0 '> No vote available</span>
-                            Vote:  <i v-else v-for="vote in voteInStar(movie.vote_average)" class="fas fa-star"></i>
-                         </div>
+                    
+                        <div class="credits hidden">
+                            <div class="title">Titolo: {{movie.title}}</div>
+                            <div class="original-title">Titolo Originale: {{movie.original_title}}</div>
+                            <div class="lenguage">Lingua:<span class="flag"> <img :src=' " img/" + movie.original_language + ".svg" ' alt=""></span>{{movie.original_language}}</div>
+                            <div  class="vote">
+                                <span v-if='movie.vote_average == 0 '> No vote available</span>
+                                Vote:  <i v-else v-for="vote in voteInStar(movie.vote_average)" class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!--End container and cards for movies  -->
@@ -56,13 +58,15 @@
                             <img class="poster-net" v-if="show.poster_path == null" src="img/posternetflix.jpg" alt="">
                             <img v-else :src="'https://image.tmdb.org/t/p/w342/'+ show.poster_path" alt="">
                         </div>
-
-                        <div class="title">Titolo: {{show.name}}</div>
-                        <div class="original-title">Titolo Originale: {{show.original_title}}</div>
-                        <div class="lenguage">Lingua:<span class="flag"> <img :src=' " img/" + show.original_language + ".svg" ' alt=""></span>{{show.original_language}}</div>
-                        <div  class="vote">
-                            <span v-if='show.vote_average == 0 '> No vote available</span>
-                           Vote:  <i v-else v-for="vote in voteInStar(show.vote_average)" class="fas fa-star"></i>
+                    
+                        <div class="credits hidden">
+                            <div class="title">Titolo: {{show.name}}</div>
+                            <div class="original-title">Titolo Originale: {{show.original_title}}</div>
+                            <div class="lenguage">Lingua:<span class="flag"> <img :src=' " img/" + show.original_language + ".svg" ' alt=""></span>{{show.original_language}}</div>
+                            <div  class="vote">
+                                <span v-if='show.vote_average == 0 '> No vote available</span>
+                            Vote:  <i v-else v-for="vote in voteInStar(show.vote_average)" class="fas fa-star"></i>
+                            </div>
                         </div>
 
                     </div>

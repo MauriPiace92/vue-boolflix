@@ -39,10 +39,29 @@ h1{
 
 .single-card{
     width: calc((100% / 5) - 20px);
-    background-color: red;
-    padding: 20px;
+    height: 100%;
     margin-bottom: 20px;
+    position: relative;
+
     
+}
+.credits{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 99.5%;
+    color: white;
+}
+
+
+.hidden{
+    display: none;
+}
+
+.single-card:hover .hidden{
+    display: block;
 }
 .lenguage {
     display: flex;
@@ -59,8 +78,8 @@ h1{
 
 
 .poster-net{
-    width: 320px;
-    height: 250px;
+    width: 100%;
+    height: ;
 }
 
 .vote{
