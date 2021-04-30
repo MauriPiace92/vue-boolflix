@@ -13,7 +13,7 @@
 
 header{
 
-    background-color: white;
+    background-color: black;
     padding: 10px 20px;
     display: flex;
     align-items: center;
@@ -41,4 +41,16 @@ h1{
     padding: 20px;
     margin-bottom: 20px;
     
+}
+.lenguage {
+    display: flex;
+}
+
+ .lenguage .flag{
+    width: 20px;
+    margin:0 5px
+}
+
+.lenguage img{
+    width: 100%;
 }
